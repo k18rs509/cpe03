@@ -114,6 +114,23 @@
             hour = parseInt(second*24/60);
             minute = parseInt(second);            
         }
+        $("#time").html(formatTime(hour,minute,second));
+
+        if(hour==12){
+          $("#message").html("お昼食べた？");
+          ctx.fillStyle = "blue";
+          ctx.fillText("お昼！", 100, 200);
+        } else {
+          $("#message").html("");
+        }
+
+        if(hour<6||hour>=18){
+          $("body").css("backgroundColor","#555555");
+        } else  if(hour>=6 && hour<12) {
+          $("body").css("backgroundColor", "yellow");
+        } else {
+          $("body").css("backgroundColor","blue");
+        }
 
 
 
